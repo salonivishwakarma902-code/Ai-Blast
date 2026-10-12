@@ -1,0 +1,3 @@
+sed -i 's/id == 4 -> Quadruple(BoardShapeType.STAR, 12, 55, DifficultyTier.EASY)/id == 4 -> Quadruple(BoardShapeType.LABYRINTH, 9, 30, DifficultyTier.EASY)/' app/src/main/java/com/example/engine/LevelRepository.kt
+sed -i 's/id == 5 -> Quadruple(BoardShapeType.CROSS, 13, 60, DifficultyTier.EASY)/id == 5 -> Quadruple(BoardShapeType.LABYRINTH, 11, 45, DifficultyTier.NORMAL)/' app/src/main/java/com/example/engine/LevelRepository.kt
+sed -i 's/id <= 20 -> {/id == 6 -> Quadruple(BoardShapeType.HEART, 13, 65, DifficultyTier.HARD)\n      id <= 20 -> {/' app/src/main/java/com/example/engine/LevelRepository.kt
