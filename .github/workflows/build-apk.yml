@@ -137,14 +137,7 @@ jobs:
           RELEASE_TAG="debug-apk-build-${{ github.run_number }}-${{ github.run_attempt }}"
           RELEASE_TITLE="Debug APK Build #${{ github.run_number }}"
 
-          BODY="### Automated Debug APK Build
-
-- **Build Source**: Automatically generated debug APK built by GitHub Actions.
-- **Workflow Run Number**: ${{ github.run_number }}
-- **Workflow Run Attempt**: ${{ github.run_attempt }}
-- **Source Commit SHA**: ${{ github.sha }}
-- **Intended Purpose**: Testing and preview verification.
-- **Notice**: This APK is signed only with a temporary debug keystore and is not a Play Store production release."
+          BODY=$(printf "### Automated Debug APK Build\n\n- **Build Source**: Automatically generated debug APK built by GitHub Actions.\n- **Workflow Run Number**: %s\n- **Workflow Run Attempt**: %s\n- **Source Commit SHA**: %s\n- **Intended Purpose**: Testing and preview verification.\n- **Notice**: This APK is signed only with a temporary debug keystore and is not a Play Store production release." "${{ github.run_number }}" "${{ github.run_attempt }}" "${{ github.sha }}")
 
           gh release create "$RELEASE_TAG" "$ASSET_PATH" \
             --title "$RELEASE_TITLE" \
